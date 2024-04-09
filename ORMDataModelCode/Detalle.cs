@@ -5,6 +5,7 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using DevExpress.XtraGrid.Views.Grid;
 namespace GestorFactura.bdventa
 {
 
@@ -12,6 +13,11 @@ namespace GestorFactura.bdventa
     {
         public Detalle(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+
+        public static implicit operator GridView(Detalle v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

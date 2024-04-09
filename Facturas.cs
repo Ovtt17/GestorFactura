@@ -1,4 +1,5 @@
 ﻿using DevExpress.Data.Filtering;
+using DevExpress.Utils.Extensions;
 using GestorFactura.bdventa;
 using System;
 using System.Collections;
@@ -16,8 +17,9 @@ namespace GestorFactura
     public partial class Facturas : Form
     {
         List<int> saleIdList;
-        int currentSaleId = 1;
-        // convierte la cadena en una constante para que no se pueda modificar
+        protected internal Venta sale;
+        int currentSaleId;
+        
         const string totalToPayTitle = "TOTAL A PAGAR: ";
         public Facturas()
         {
@@ -26,12 +28,13 @@ namespace GestorFactura
         private void Facturas_Load(object sender, EventArgs e)
         {
             GetSalesId();
-            GetSaleDetails(currentSaleId);
+            GetSaleDetails(saleIdList.First());
         }
 
         private void GetSalesId()
         {
             saleIdList = new List<int>();
+            xpVenta.Reload();
             foreach (Venta sale in xpVenta)
             {
                 saleIdList.Add(sale.idventa);
@@ -41,8 +44,11 @@ namespace GestorFactura
         {
             currentSaleId = saleId;
             txtEnvoiceNumber.Text = saleId.ToString();
-            Venta sale = (Venta) xpVenta.Lookup(saleId);
-            txtClient.Text = sale.cliente_idcliente.nombre;
+            Venta sale = (Venta) xpVenta.Lookup(saleId); 
+
+            searchClient.EditValue = sale.cliente_idcliente.idcliente;
+            searchClient.Properties.ReadOnly = true;
+            
             txtEnvoiceDate.Text = sale.fecha.ToString();
             lbTotal.Text = totalToPayTitle + sale.monto_total.ToString();
             gridControl1.DataSource = sale.Detalles;
@@ -83,15 +89,90 @@ namespace GestorFactura
             GetSaleDetails(saleIdList.Last());
         }
 
-        private void BtnNuevaFactura_Click(object sender, EventArgs e)
+        private void BtnNewEnvoice_Click(object sender, EventArgs e)
         {
-            Venta newSale = new Venta(unitOfWork1);
-            txtEnvoiceNumber.Text = newSale.idventa.ToString();
-            txtClient.Text = "";
+            CleanFields();
+            sale = new Venta(unitOfWork1);
+
+            txtEnvoiceNumber.Text = (saleIdList.Last() + 1).ToString();
+            bool isScrollButtonEnabled = false;
+            ChangeControlsState(isScrollButtonEnabled);
+        }
+
+        private void ChangeControlsState(bool state)
+        {
+            BtnFirst.Enabled = state;
+            BtnBack.Enabled = state;
+            BtnNext.Enabled = state;
+            BtnLast.Enabled = state;
+            BtnNewEnvoice.Enabled = state;
+
+            BtnSave.Enabled = !state;
+            BtnCancel.Enabled = !state;
+            BtnAddProduct.Enabled = !state;
+            BtnDeleteProduct.Enabled = !state;
+
+            searchClient.Properties.ReadOnly = state;
+        }
+
+        private void CleanFields()
+        {
+            searchClient.EditValue = "";
             txtEnvoiceDate.Text = "";
             lbTotal.Text = totalToPayTitle;
             gridControl1.DataSource = null;
+        }
 
+        private void BtnAddProduct_Click(object sender, EventArgs e)
+        {
+            AddProduct addProduct = new AddProduct(unitOfWork1);
+            AddOwnedForm(addProduct);
+            addProduct.ShowDialog();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            sale = null;
+            bool isScrollButtonEnabled = true;
+            ChangeControlsState(isScrollButtonEnabled);
+            GetSaleDetails(saleIdList.First());
+        }
+
+        private void BtnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            Detalle saleDetail = (Detalle)gridDetalles.GetFocusedRow();
+            sale.Detalles.Remove(saleDetail);
+            gridControl1.RefreshDataSource();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            bool isScrollButtonEnabled = true;
+            ChangeControlsState(isScrollButtonEnabled);
+            SaveSale();
+            GetSalesId();
+            GetSaleDetails(saleIdList.First());
+        }
+
+        private void SaveSale()
+        {
+            sale.cliente_idcliente = (Cliente)searchClient.GetSelectedDataRow();
+            sale.fecha = DateTime.Now;
+
+            int totalQuantity = 0;
+            float totalAmount = 0f;
+
+            foreach (var detail in sale.Detalles)
+            {
+                totalQuantity += detail.cantidad;
+                totalAmount += detail.subtotal;
+            }
+            sale.cantidad = totalQuantity;
+            sale.monto_total = totalAmount;
+
+            sale.Save();
+            sale.Detalles.ForEach(detail => detail.Save());
+            unitOfWork1.CommitChanges();
         }
     }
 }

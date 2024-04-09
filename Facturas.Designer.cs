@@ -30,16 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lbTotal = new System.Windows.Forms.Label();
-            this.BtnEliminarProducto = new System.Windows.Forms.Button();
-            this.BtnAgregarProducto = new System.Windows.Forms.Button();
-            this.BtnCancelar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.BtnNuevaFactura = new System.Windows.Forms.Button();
+            this.BtnDeleteProduct = new System.Windows.Forms.Button();
+            this.BtnAddProduct = new System.Windows.Forms.Button();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnNewEnvoice = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
-            this.txtClient = new System.Windows.Forms.TextBox();
             this.txtEnvoiceNumber = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,6 +59,9 @@
             this.BtnFirst = new System.Windows.Forms.Button();
             this.xpVenta = new DevExpress.Xpo.XPCollection(this.components);
             this.txtEnvoiceDate = new System.Windows.Forms.TextBox();
+            this.xpClient = new DevExpress.Xpo.XPCollection(this.components);
+            this.searchClient = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -68,6 +70,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalles)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xpVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchClient.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // lbTotal
@@ -79,57 +84,65 @@
             this.lbTotal.TabIndex = 20;
             this.lbTotal.Text = "TOTAL A PAGAR:";
             // 
-            // BtnEliminarProducto
+            // BtnDeleteProduct
             // 
-            this.BtnEliminarProducto.Location = new System.Drawing.Point(30, 69);
-            this.BtnEliminarProducto.Name = "BtnEliminarProducto";
-            this.BtnEliminarProducto.Size = new System.Drawing.Size(163, 31);
-            this.BtnEliminarProducto.TabIndex = 4;
-            this.BtnEliminarProducto.Text = "ELIMINAR PRODUCTO";
-            this.BtnEliminarProducto.UseVisualStyleBackColor = true;
+            this.BtnDeleteProduct.Enabled = false;
+            this.BtnDeleteProduct.Location = new System.Drawing.Point(30, 69);
+            this.BtnDeleteProduct.Name = "BtnDeleteProduct";
+            this.BtnDeleteProduct.Size = new System.Drawing.Size(163, 31);
+            this.BtnDeleteProduct.TabIndex = 4;
+            this.BtnDeleteProduct.Text = "ELIMINAR PRODUCTO";
+            this.BtnDeleteProduct.UseVisualStyleBackColor = true;
+            this.BtnDeleteProduct.Click += new System.EventHandler(this.BtnDeleteProduct_Click);
             // 
-            // BtnAgregarProducto
+            // BtnAddProduct
             // 
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(30, 19);
-            this.BtnAgregarProducto.Name = "BtnAgregarProducto";
-            this.BtnAgregarProducto.Size = new System.Drawing.Size(163, 31);
-            this.BtnAgregarProducto.TabIndex = 3;
-            this.BtnAgregarProducto.Text = "AGREGAR PRODUCTO";
-            this.BtnAgregarProducto.UseVisualStyleBackColor = true;
+            this.BtnAddProduct.Enabled = false;
+            this.BtnAddProduct.Location = new System.Drawing.Point(30, 19);
+            this.BtnAddProduct.Name = "BtnAddProduct";
+            this.BtnAddProduct.Size = new System.Drawing.Size(163, 31);
+            this.BtnAddProduct.TabIndex = 3;
+            this.BtnAddProduct.Text = "AGREGAR PRODUCTO";
+            this.BtnAddProduct.UseVisualStyleBackColor = true;
+            this.BtnAddProduct.Click += new System.EventHandler(this.BtnAddProduct_Click);
             // 
-            // BtnCancelar
+            // BtnCancel
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(30, 103);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(163, 31);
-            this.BtnCancelar.TabIndex = 2;
-            this.BtnCancelar.Text = "CANCELAR";
-            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancel.Enabled = false;
+            this.BtnCancel.Location = new System.Drawing.Point(30, 103);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(163, 31);
+            this.BtnCancel.TabIndex = 2;
+            this.BtnCancel.Text = "CANCELAR";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // BtnGuardar
+            // BtnSave
             // 
-            this.BtnGuardar.Location = new System.Drawing.Point(30, 60);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(163, 31);
-            this.BtnGuardar.TabIndex = 1;
-            this.BtnGuardar.Text = "GUARDAR";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnSave.Enabled = false;
+            this.BtnSave.Location = new System.Drawing.Point(30, 60);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(163, 31);
+            this.BtnSave.TabIndex = 1;
+            this.BtnSave.Text = "GUARDAR";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // BtnNuevaFactura
+            // BtnNewEnvoice
             // 
-            this.BtnNuevaFactura.Location = new System.Drawing.Point(30, 19);
-            this.BtnNuevaFactura.Name = "BtnNuevaFactura";
-            this.BtnNuevaFactura.Size = new System.Drawing.Size(163, 31);
-            this.BtnNuevaFactura.TabIndex = 0;
-            this.BtnNuevaFactura.Text = "NUEVA FACTURA";
-            this.BtnNuevaFactura.UseVisualStyleBackColor = true;
-            this.BtnNuevaFactura.Click += new System.EventHandler(this.BtnNuevaFactura_Click);
+            this.BtnNewEnvoice.Location = new System.Drawing.Point(30, 19);
+            this.BtnNewEnvoice.Name = "BtnNewEnvoice";
+            this.BtnNewEnvoice.Size = new System.Drawing.Size(163, 31);
+            this.BtnNewEnvoice.TabIndex = 0;
+            this.BtnNewEnvoice.Text = "NUEVA FACTURA";
+            this.BtnNewEnvoice.UseVisualStyleBackColor = true;
+            this.BtnNewEnvoice.Click += new System.EventHandler(this.BtnNewEnvoice_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BtnCancelar);
-            this.groupBox1.Controls.Add(this.BtnGuardar);
-            this.groupBox1.Controls.Add(this.BtnNuevaFactura);
+            this.groupBox1.Controls.Add(this.BtnCancel);
+            this.groupBox1.Controls.Add(this.BtnSave);
+            this.groupBox1.Controls.Add(this.BtnNewEnvoice);
             this.groupBox1.Location = new System.Drawing.Point(669, 205);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(216, 140);
@@ -139,8 +152,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.BtnEliminarProducto);
-            this.groupBox2.Controls.Add(this.BtnAgregarProducto);
+            this.groupBox2.Controls.Add(this.BtnDeleteProduct);
+            this.groupBox2.Controls.Add(this.BtnAddProduct);
             this.groupBox2.Location = new System.Drawing.Point(669, 359);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(216, 119);
@@ -167,14 +180,6 @@
             this.lbDate.Size = new System.Drawing.Size(49, 15);
             this.lbDate.TabIndex = 16;
             this.lbDate.Text = "FECHA:";
-            // 
-            // txtClient
-            // 
-            this.txtClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClient.Location = new System.Drawing.Point(184, 135);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.Size = new System.Drawing.Size(201, 21);
-            this.txtClient.TabIndex = 15;
             // 
             // txtEnvoiceNumber
             // 
@@ -386,11 +391,39 @@
             this.txtEnvoiceDate.Size = new System.Drawing.Size(201, 21);
             this.txtEnvoiceDate.TabIndex = 23;
             // 
+            // xpClient
+            // 
+            this.xpClient.ObjectType = typeof(GestorFactura.bdventa.Cliente);
+            this.xpClient.Session = this.unitOfWork1;
+            // 
+            // searchClient
+            // 
+            this.searchClient.EditValue = "string";
+            this.searchClient.Location = new System.Drawing.Point(184, 137);
+            this.searchClient.Name = "searchClient";
+            this.searchClient.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchClient.Properties.DataSource = this.xpClient;
+            this.searchClient.Properties.DisplayMember = "nombre";
+            this.searchClient.Properties.PopupView = this.searchLookUpEdit1View;
+            this.searchClient.Properties.ReadOnly = true;
+            this.searchClient.Properties.ValueMember = "idcliente";
+            this.searchClient.Size = new System.Drawing.Size(203, 20);
+            this.searchClient.TabIndex = 25;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 628);
+            this.Controls.Add(this.searchClient);
             this.Controls.Add(this.txtEnvoiceDate);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gridControl1);
@@ -399,7 +432,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbDate);
-            this.Controls.Add(this.txtClient);
             this.Controls.Add(this.txtEnvoiceNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -415,6 +447,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalles)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xpVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchClient.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,22 +458,19 @@
         #endregion
 
         private System.Windows.Forms.Label lbTotal;
-        private System.Windows.Forms.Button BtnEliminarProducto;
-        private System.Windows.Forms.Button BtnAgregarProducto;
-        private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnGuardar;
-        private System.Windows.Forms.Button BtnNuevaFactura;
+        private System.Windows.Forms.Button BtnDeleteProduct;
+        private System.Windows.Forms.Button BtnAddProduct;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnSave;
+        private System.Windows.Forms.Button BtnNewEnvoice;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbDate;
-        private System.Windows.Forms.TextBox txtClient;
         private System.Windows.Forms.TextBox txtEnvoiceNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridDetalles;
         private DevExpress.Xpo.UnitOfWork unitOfWork1;
         private DevExpress.Xpo.XPCollection xpDetalleVenta;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
@@ -453,5 +485,10 @@
         private System.Windows.Forms.Button BtnFirst;
         private DevExpress.Xpo.XPCollection xpVenta;
         private System.Windows.Forms.TextBox txtEnvoiceDate;
+        private DevExpress.Xpo.XPCollection xpClient;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchClient;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        protected internal DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridDetalles;
     }
 }
