@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Utils.Extensions;
+using DevExpress.XtraGrid.Views.Items.Layout;
 using GestorFactura.bdventa;
 using System;
 using System.Collections;
@@ -44,7 +45,7 @@ namespace GestorFactura
         {
             currentSaleId = saleId;
             txtEnvoiceNumber.Text = saleId.ToString();
-            Venta sale = (Venta) xpVenta.Lookup(saleId); 
+            Venta sale = (Venta) xpVenta.Lookup(saleId);
 
             searchClient.EditValue = sale.cliente_idcliente.idcliente;
             searchClient.Properties.ReadOnly = true;
@@ -91,9 +92,11 @@ namespace GestorFactura
 
         private void BtnNewEnvoice_Click(object sender, EventArgs e)
         {
+            sale = new Venta(unitOfWork1)
+            {
+                fecha = DateTime.Today
+            };
             CleanFields();
-            sale = new Venta(unitOfWork1);
-
             txtEnvoiceNumber.Text = (saleIdList.Last() + 1).ToString();
             bool isScrollButtonEnabled = false;
             ChangeControlsState(isScrollButtonEnabled);
@@ -117,10 +120,9 @@ namespace GestorFactura
 
         private void CleanFields()
         {
-            searchClient.EditValue = "";
-            txtEnvoiceDate.Text = "";
+            txtEnvoiceDate.Text = DateTime.Today.ToString();
             lbTotal.Text = totalToPayTitle;
-            gridControl1.DataSource = null;
+            gridControl1.DataSource = sale.Detalles;
         }
 
         private void BtnAddProduct_Click(object sender, EventArgs e)
@@ -132,7 +134,7 @@ namespace GestorFactura
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            sale = null;
+            sale.Delete();  
             bool isScrollButtonEnabled = true;
             ChangeControlsState(isScrollButtonEnabled);
             GetSaleDetails(saleIdList.First());
@@ -147,32 +149,63 @@ namespace GestorFactura
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            bool isSaleSaved = SaveSale();
+            if (!isSaleSaved)
+            {
+                return;
+            }
+
             bool isScrollButtonEnabled = true;
             ChangeControlsState(isScrollButtonEnabled);
-            SaveSale();
             GetSalesId();
             GetSaleDetails(saleIdList.First());
         }
 
-        private void SaveSale()
+        private bool SaveSale()
         {
-            sale.cliente_idcliente = (Cliente)searchClient.GetSelectedDataRow();
-            sale.fecha = DateTime.Now;
-
-            int totalQuantity = 0;
-            float totalAmount = 0f;
-
-            foreach (var detail in sale.Detalles)
+            try
             {
-                totalQuantity += detail.cantidad;
-                totalAmount += detail.subtotal;
-            }
-            sale.cantidad = totalQuantity;
-            sale.monto_total = totalAmount;
+                if (sale.cliente_idcliente == null)
+                {
+                    MessageBox.Show("Seleccione un cliente");
+                    return false;
+                }
+                else if (sale.Detalles.Count == 0)
+                {
+                    MessageBox.Show("Agregue al menos un producto");
+                    return false;
+                }
+                
+                int totalQuantity = 0;
+                float totalAmount = 0f;
 
-            sale.Save();
-            sale.Detalles.ForEach(detail => detail.Save());
-            unitOfWork1.CommitChanges();
+                foreach (var detail in sale.Detalles)
+                {
+                    totalQuantity += detail.cantidad;
+                    totalAmount += detail.subtotal;
+                }
+
+                MessageBox.Show(sale.cliente_idcliente.idcliente.ToString());
+                sale.cantidad = totalQuantity;
+                sale.monto_total = totalAmount;
+                unitOfWork1.CommitChanges();
+
+                return true;
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la factura: " + ex.Message);
+                return false;
+            }
+        }
+
+        private void searchClient_EditValueChanged(object sender, EventArgs e)
+        {
+            if (searchClient.ReadOnly == false)
+            {
+                Cliente cliente = (Cliente)searchLookUpEdit1View.GetFocusedRow();
+                sale.cliente_idcliente = cliente;
+                MessageBox.Show("El cliente es: " + sale.cliente_idcliente.idcliente);
+            }
         }
     }
 }

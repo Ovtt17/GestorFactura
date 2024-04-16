@@ -31,12 +31,22 @@ namespace GestorFactura
         {
             Facturas facturas = Owner as Facturas;
             Producto product = (Producto)searchLookUpEdit1View.GetFocusedRow();
+            if (product == null)
+            {
+                MessageBox.Show("Seleccione un producto");
+                return;
+            } else if (txtAmount.Text == "" || txtAmount.Text == "0")
+            {
+                MessageBox.Show("Ingrese una cantidad valida");
+                return;
+            }
             Detalle saleDetails = new Detalle(unitOfWork)
             {
                 cantidad = Convert.ToInt32(txtAmount.Text),
                 producto_idproducto = product,
                 subtotal = Convert.ToSingle(txtAmount.Text) * product.precio
             };
+            saleDetails.Save();
             facturas.sale.Detalles.Add(saleDetails);
             facturas.gridControl1.DataSource = facturas.sale.Detalles;
             Close();

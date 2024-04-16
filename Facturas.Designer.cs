@@ -78,18 +78,20 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Location = new System.Drawing.Point(66, 594);
+            this.lbTotal.Location = new System.Drawing.Point(88, 731);
+            this.lbTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(95, 13);
+            this.lbTotal.Size = new System.Drawing.Size(116, 16);
             this.lbTotal.TabIndex = 20;
             this.lbTotal.Text = "TOTAL A PAGAR:";
             // 
             // BtnDeleteProduct
             // 
             this.BtnDeleteProduct.Enabled = false;
-            this.BtnDeleteProduct.Location = new System.Drawing.Point(30, 69);
+            this.BtnDeleteProduct.Location = new System.Drawing.Point(40, 85);
+            this.BtnDeleteProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnDeleteProduct.Name = "BtnDeleteProduct";
-            this.BtnDeleteProduct.Size = new System.Drawing.Size(163, 31);
+            this.BtnDeleteProduct.Size = new System.Drawing.Size(217, 38);
             this.BtnDeleteProduct.TabIndex = 4;
             this.BtnDeleteProduct.Text = "ELIMINAR PRODUCTO";
             this.BtnDeleteProduct.UseVisualStyleBackColor = true;
@@ -98,9 +100,10 @@
             // BtnAddProduct
             // 
             this.BtnAddProduct.Enabled = false;
-            this.BtnAddProduct.Location = new System.Drawing.Point(30, 19);
+            this.BtnAddProduct.Location = new System.Drawing.Point(40, 23);
+            this.BtnAddProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnAddProduct.Name = "BtnAddProduct";
-            this.BtnAddProduct.Size = new System.Drawing.Size(163, 31);
+            this.BtnAddProduct.Size = new System.Drawing.Size(217, 38);
             this.BtnAddProduct.TabIndex = 3;
             this.BtnAddProduct.Text = "AGREGAR PRODUCTO";
             this.BtnAddProduct.UseVisualStyleBackColor = true;
@@ -109,9 +112,10 @@
             // BtnCancel
             // 
             this.BtnCancel.Enabled = false;
-            this.BtnCancel.Location = new System.Drawing.Point(30, 103);
+            this.BtnCancel.Location = new System.Drawing.Point(40, 127);
+            this.BtnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(163, 31);
+            this.BtnCancel.Size = new System.Drawing.Size(217, 38);
             this.BtnCancel.TabIndex = 2;
             this.BtnCancel.Text = "CANCELAR";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -120,9 +124,10 @@
             // BtnSave
             // 
             this.BtnSave.Enabled = false;
-            this.BtnSave.Location = new System.Drawing.Point(30, 60);
+            this.BtnSave.Location = new System.Drawing.Point(40, 74);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(163, 31);
+            this.BtnSave.Size = new System.Drawing.Size(217, 38);
             this.BtnSave.TabIndex = 1;
             this.BtnSave.Text = "GUARDAR";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -130,9 +135,10 @@
             // 
             // BtnNewEnvoice
             // 
-            this.BtnNewEnvoice.Location = new System.Drawing.Point(30, 19);
+            this.BtnNewEnvoice.Location = new System.Drawing.Point(40, 23);
+            this.BtnNewEnvoice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnNewEnvoice.Name = "BtnNewEnvoice";
-            this.BtnNewEnvoice.Size = new System.Drawing.Size(163, 31);
+            this.BtnNewEnvoice.Size = new System.Drawing.Size(217, 38);
             this.BtnNewEnvoice.TabIndex = 0;
             this.BtnNewEnvoice.Text = "NUEVA FACTURA";
             this.BtnNewEnvoice.UseVisualStyleBackColor = true;
@@ -143,9 +149,11 @@
             this.groupBox1.Controls.Add(this.BtnCancel);
             this.groupBox1.Controls.Add(this.BtnSave);
             this.groupBox1.Controls.Add(this.BtnNewEnvoice);
-            this.groupBox1.Location = new System.Drawing.Point(669, 205);
+            this.groupBox1.Location = new System.Drawing.Point(892, 252);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 140);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(288, 172);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -154,9 +162,11 @@
             // 
             this.groupBox2.Controls.Add(this.BtnDeleteProduct);
             this.groupBox2.Controls.Add(this.BtnAddProduct);
-            this.groupBox2.Location = new System.Drawing.Point(669, 359);
+            this.groupBox2.Location = new System.Drawing.Point(892, 442);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 119);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(288, 146);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -165,9 +175,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(85, 184);
+            this.label5.Location = new System.Drawing.Point(113, 226);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 15);
+            this.label5.Size = new System.Drawing.Size(109, 18);
             this.label5.TabIndex = 17;
             this.label5.Text = "PRODUCTOS:";
             // 
@@ -175,28 +186,31 @@
             // 
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(516, 96);
+            this.lbDate.Location = new System.Drawing.Point(688, 118);
+            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(49, 15);
+            this.lbDate.Size = new System.Drawing.Size(62, 18);
             this.lbDate.TabIndex = 16;
             this.lbDate.Text = "FECHA:";
             // 
             // txtEnvoiceNumber
             // 
             this.txtEnvoiceNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnvoiceNumber.Location = new System.Drawing.Point(184, 100);
+            this.txtEnvoiceNumber.Location = new System.Drawing.Point(245, 123);
+            this.txtEnvoiceNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEnvoiceNumber.Name = "txtEnvoiceNumber";
             this.txtEnvoiceNumber.ReadOnly = true;
-            this.txtEnvoiceNumber.Size = new System.Drawing.Size(100, 21);
+            this.txtEnvoiceNumber.Size = new System.Drawing.Size(132, 24);
             this.txtEnvoiceNumber.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(85, 138);
+            this.label3.Location = new System.Drawing.Point(113, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.Size = new System.Drawing.Size(74, 18);
             this.label3.TabIndex = 13;
             this.label3.Text = "CLIENTE:";
             // 
@@ -204,9 +218,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(85, 100);
+            this.label2.Location = new System.Drawing.Point(113, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 15);
+            this.label2.Size = new System.Drawing.Size(96, 18);
             this.label2.TabIndex = 12;
             this.label2.Text = "FACTURA N:";
             // 
@@ -214,19 +229,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(323, 38);
+            this.label1.Location = new System.Drawing.Point(431, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 33);
+            this.label1.Size = new System.Drawing.Size(228, 42);
             this.label1.TabIndex = 11;
             this.label1.Text = "FACTURAS";
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.xpDetalleVenta;
-            this.gridControl1.Location = new System.Drawing.Point(88, 205);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridControl1.Location = new System.Drawing.Point(117, 252);
             this.gridControl1.MainView = this.gridDetalles;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(560, 273);
+            this.gridControl1.Size = new System.Drawing.Size(747, 336);
             this.gridControl1.TabIndex = 21;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridDetalles});
@@ -244,8 +262,10 @@
             this.gridColumn3,
             this.colcantidad,
             this.colsubtotal});
+            this.gridDetalles.DetailHeight = 431;
             this.gridDetalles.GridControl = this.gridControl1;
             this.gridDetalles.Name = "gridDetalles";
+            this.gridDetalles.OptionsEditForm.PopupEditFormWidth = 1067;
             this.gridDetalles.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
@@ -259,9 +279,11 @@
             this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn2.Caption = "Codigo Producto";
             this.gridColumn2.FieldName = "producto_idproducto!Key";
+            this.gridColumn2.MinWidth = 27;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 100;
             // 
             // gridColumn1
             // 
@@ -273,9 +295,11 @@
             this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn1.Caption = "Nombre de Producto";
             this.gridColumn1.FieldName = "producto_idproducto.nombreprod";
+            this.gridColumn1.MinWidth = 27;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 100;
             // 
             // gridColumn3
             // 
@@ -287,9 +311,11 @@
             this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn3.Caption = "Precio";
             this.gridColumn3.FieldName = "producto_idproducto.precio";
+            this.gridColumn3.MinWidth = 27;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 100;
             // 
             // colcantidad
             // 
@@ -301,9 +327,11 @@
             this.colcantidad.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colcantidad.Caption = "Cantidad";
             this.colcantidad.FieldName = "cantidad";
+            this.colcantidad.MinWidth = 27;
             this.colcantidad.Name = "colcantidad";
             this.colcantidad.Visible = true;
             this.colcantidad.VisibleIndex = 3;
+            this.colcantidad.Width = 100;
             // 
             // colsubtotal
             // 
@@ -315,9 +343,11 @@
             this.colsubtotal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colsubtotal.Caption = "Subtotal";
             this.colsubtotal.FieldName = "subtotal";
+            this.colsubtotal.MinWidth = 27;
             this.colsubtotal.Name = "colsubtotal";
             this.colsubtotal.Visible = true;
             this.colsubtotal.VisibleIndex = 4;
+            this.colsubtotal.Width = 100;
             // 
             // groupBox3
             // 
@@ -325,20 +355,20 @@
             this.groupBox3.Controls.Add(this.BtnNext);
             this.groupBox3.Controls.Add(this.BtnBack);
             this.groupBox3.Controls.Add(this.BtnFirst);
-            this.groupBox3.Location = new System.Drawing.Point(173, 493);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Location = new System.Drawing.Point(231, 607);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(408, 78);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(544, 96);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             // 
             // BtnLast
             // 
-            this.BtnLast.Location = new System.Drawing.Point(312, 33);
-            this.BtnLast.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnLast.Location = new System.Drawing.Point(416, 41);
+            this.BtnLast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnLast.Name = "BtnLast";
-            this.BtnLast.Size = new System.Drawing.Size(56, 24);
+            this.BtnLast.Size = new System.Drawing.Size(75, 30);
             this.BtnLast.TabIndex = 3;
             this.BtnLast.Text = ">|";
             this.BtnLast.UseVisualStyleBackColor = true;
@@ -346,10 +376,10 @@
             // 
             // BtnNext
             // 
-            this.BtnNext.Location = new System.Drawing.Point(221, 33);
-            this.BtnNext.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnNext.Location = new System.Drawing.Point(295, 41);
+            this.BtnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnNext.Name = "BtnNext";
-            this.BtnNext.Size = new System.Drawing.Size(56, 24);
+            this.BtnNext.Size = new System.Drawing.Size(75, 30);
             this.BtnNext.TabIndex = 2;
             this.BtnNext.Text = ">>";
             this.BtnNext.UseVisualStyleBackColor = true;
@@ -357,10 +387,10 @@
             // 
             // BtnBack
             // 
-            this.BtnBack.Location = new System.Drawing.Point(127, 33);
-            this.BtnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnBack.Location = new System.Drawing.Point(169, 41);
+            this.BtnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(56, 24);
+            this.BtnBack.Size = new System.Drawing.Size(75, 30);
             this.BtnBack.TabIndex = 1;
             this.BtnBack.Text = "<<";
             this.BtnBack.UseVisualStyleBackColor = true;
@@ -368,10 +398,10 @@
             // 
             // BtnFirst
             // 
-            this.BtnFirst.Location = new System.Drawing.Point(41, 33);
-            this.BtnFirst.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnFirst.Location = new System.Drawing.Point(55, 41);
+            this.BtnFirst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnFirst.Name = "BtnFirst";
-            this.BtnFirst.Size = new System.Drawing.Size(56, 24);
+            this.BtnFirst.Size = new System.Drawing.Size(75, 30);
             this.BtnFirst.TabIndex = 0;
             this.BtnFirst.Text = "|<";
             this.BtnFirst.UseVisualStyleBackColor = true;
@@ -385,10 +415,11 @@
             // txtEnvoiceDate
             // 
             this.txtEnvoiceDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnvoiceDate.Location = new System.Drawing.Point(571, 96);
+            this.txtEnvoiceDate.Location = new System.Drawing.Point(761, 118);
+            this.txtEnvoiceDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEnvoiceDate.Name = "txtEnvoiceDate";
             this.txtEnvoiceDate.ReadOnly = true;
-            this.txtEnvoiceDate.Size = new System.Drawing.Size(201, 21);
+            this.txtEnvoiceDate.Size = new System.Drawing.Size(267, 24);
             this.txtEnvoiceDate.TabIndex = 23;
             // 
             // xpClient
@@ -399,7 +430,8 @@
             // searchClient
             // 
             this.searchClient.EditValue = "string";
-            this.searchClient.Location = new System.Drawing.Point(184, 137);
+            this.searchClient.Location = new System.Drawing.Point(245, 169);
+            this.searchClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchClient.Name = "searchClient";
             this.searchClient.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -408,21 +440,24 @@
             this.searchClient.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchClient.Properties.ReadOnly = true;
             this.searchClient.Properties.ValueMember = "idcliente";
-            this.searchClient.Size = new System.Drawing.Size(203, 20);
+            this.searchClient.Size = new System.Drawing.Size(271, 22);
             this.searchClient.TabIndex = 25;
+            this.searchClient.EditValueChanged += new System.EventHandler(this.searchClient_EditValueChanged);
             // 
             // searchLookUpEdit1View
             // 
+            this.searchLookUpEdit1View.DetailHeight = 431;
             this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsEditForm.PopupEditFormWidth = 1067;
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // Facturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 628);
+            this.ClientSize = new System.Drawing.Size(1196, 773);
             this.Controls.Add(this.searchClient);
             this.Controls.Add(this.txtEnvoiceDate);
             this.Controls.Add(this.groupBox3);
@@ -436,6 +471,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Facturas";
             this.Text = "Facturas";
             this.Load += new System.EventHandler(this.Facturas_Load);
